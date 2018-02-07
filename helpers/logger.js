@@ -4,7 +4,7 @@ const {resolve} = require('path');
 class LoggerHelper {
 	constructor(userName) {
 		this.logFileName = `${userName}#${new Date().toISOString()}.txt`;
-		this.fqn = resolve(__dirname, `../files/${this.logFileName}`);
+		this.fqn = resolve(__dirname, `/${this.logFileName}`);
     }
     
     async createLogFile() {

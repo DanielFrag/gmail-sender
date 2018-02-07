@@ -94,7 +94,7 @@ class GmailSender {
         mailOptions.html = `<h2>Summary</h2></br><div>sent: ${report.sent}</div><div>error: ${report.error}</div><div>ignored: ${report.ignored}</div>`;
         mailOptions.subject = 'Sender Report'
         mailOptions.to = this.email;
-        const log = await fileUtils.readFileWithPromise(resolve(__dirname, `../files/${this.logger.getLogFileName()}`), 'utf8');
+        const log = await fileUtils.readFileWithPromise(resolve(__dirname, `/${this.logger.getLogFileName()}`), 'utf8');
         if (log && log.length) {
             mailOptions.attachments = [{
                 filename: 'log.txt',
@@ -162,7 +162,7 @@ class GmailSender {
                 mailOptions.subject = 'Sender Report'
                 mailOptions.to = this.email;
                 fileUtils
-                    .readFileWithPromise(resolve(__dirname, `../files/${this.logger.getLogFileName()}`), 'utf8')
+                    .readFileWithPromise(resolve(__dirname, `/${this.logger.getLogFileName()}`), 'utf8')
                     .then(fileData => {
                         if (fileData.length) {
                             mailOptions.attachments = [{
