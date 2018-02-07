@@ -3,8 +3,8 @@ const {resolve} = require('path');
 
 class LoggerHelper {
 	constructor(userName) {
-		this.logFileName = `${userName}#${new Date().toISOString()}.txt`;
-		this.fqn = resolve(__dirname, `/${this.logFileName}`);
+		this.logFileName = `${userName}#${new Date().toISOString().split('T')[0]}.txt`;
+		this.fqn = resolve(__dirname, `../files/${this.logFileName}`);
     }
     
     async createLogFile() {
